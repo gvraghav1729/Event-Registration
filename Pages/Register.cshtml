@@ -1,0 +1,28 @@
+@page "{id:int}"
+@model EventRegistration.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register for Event";
+}
+
+<h1>Register for @Model.Event.Name</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Registration.EventId" />
+    <div class="form-group">
+        <label asp-for="Registration.StudentName"></label>
+        <input asp-for="Registration.StudentName" class="form-control" />
+        <span asp-validation-for="Registration.StudentName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Registration.StudentId"></label>
+        <input asp-for="Registration.StudentId" class="form-control" />
+        <span asp-validation-for="Registration.StudentId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Registration.Email"></label>
+        <input asp-for="Registration.Email" class="form-control" />
+        <span asp-validation-for="Registration.Email" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+</form>
